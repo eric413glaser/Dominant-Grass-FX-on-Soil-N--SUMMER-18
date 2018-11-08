@@ -34,23 +34,26 @@ ndataSPP <- ndata %>%
          "Andropogon gerardi",
          "Sorghastrum nutans"))
 
+ndata2001 <- ndataSPP %>%
+  filter(Year == 2001)
+  select(Year)
+
 ndata1998 <- ndataSPP %>%
   filter(Year == 1998) 
-
+  select(Year)
 ndata1999 <- ndataSPP %>%
   filter(Year == 1999)
 
 ndata2000 <- ndataSPP %>%
   filter(Year == 2000)
 
-ndata2001 <- ndataSPP %>%
-  filter(Year == 2001)
-
 ndata2002 <- ndataSPP %>%
   filter(Year == 2002)
 
-ndata2003 <- ndataSPP %>%
-  filter(Year == 2003)
+
+test3 <- aov(NO2NO3~monospecies, data=ndata2000)
+summary(test3)
+TukeyHSD(test3)
 
 test1 <- aov(NO2NO3~monospecies, data=ndata1998) #average N level of year
 summary(test1)
@@ -60,15 +63,31 @@ test2 <- aov(NO2NO3~monospecies, data=ndata1999)
 summary(test2)
 TukeyHSD(test2)
 
-test3 <- aov(NO2NO3~monospecies, data=ndata2000)
-summary(test3)
-TukeyHSD(test3)
-
 test4 <- aov(NO2NO3~monospecies, data=ndata2001)
 summary(test4)
 TukeyHSD(test4)
 
 test5 <- aov(NO2NO3~monospecies, data=ndata2002)
+summary(test5)
+TukeyHSD(test5)
+
+test3Am <- aov(NH4~monospecies, data=ndata2000)
+summary(test3)
+TukeyHSD(test3)
+
+test1Am <- aov(NH4~monospecies, data=ndata1998) #average N level of year
+summary(test1)
+TukeyHSD(test1)
+
+test2Am <- aov(NH4~monospecies, data=ndata1999)
+summary(test2)
+TukeyHSD(test2)
+
+test4Am <- aov(NH4~monospecies, data=ndata2001)
+summary(test4)
+TukeyHSD(test4)
+
+test5Am <- aov(NH4~monospecies, data=ndata2002)
 summary(test5)
 TukeyHSD(test5)
 
